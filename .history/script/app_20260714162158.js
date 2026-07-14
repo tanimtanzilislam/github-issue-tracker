@@ -73,7 +73,7 @@ function displayIssues(issues) {
             `).join("")
     }
     </div>
-        <div class="flex-1 border-t mt-3 border-gray-300"></div>
+
         <div class="mt-5 text-sm text-gray-500">
          #${issue.id}   By ${issue.author}
         </div>

@@ -73,10 +73,10 @@ function displayIssues(issues) {
             `).join("")
     }
     </div>
-        <div class="flex-1 border-t mt-3 border-gray-300"></div>
-        <div class="mt-5 text-sm text-gray-500">
-         #${issue.id}   By ${issue.author}
-        </div>
+
+        <sapn class="mt-5 text-sm text-gray-500">
+          ${id}  By ${issue.author}
+        </span>
 
         <div class="text-xs text-gray-400">
             ${issue.createdAt}
