@@ -90,14 +90,14 @@ function displayIssues(issues) {
 
             <div class="border-t border-gray-300 mt-4 pt-4">
      
-<div class="flex gap-7">
+
             <div>
                 <div class="text-sm text-gray-400">
                     #${issue.id} By ${issue.author}
                 </div>
 
                 <div class="text-sm text-gray-400">
-                   Assignee:${issue.assignee}
+                    ${issue.assignee}
                 </div>
 
                 </div>
@@ -106,8 +106,6 @@ function displayIssues(issues) {
 
                 <div class="text-xs text-gray-400 mt-1">
                     ${issue.createdAt}
-                </div>
-
                 </div>
 
                 </div>

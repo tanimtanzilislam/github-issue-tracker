@@ -90,7 +90,7 @@ function displayIssues(issues) {
 
             <div class="border-t border-gray-300 mt-4 pt-4">
      
-<div class="flex gap-7">
+<div class="flex gap-5">
             <div>
                 <div class="text-sm text-gray-400">
                     #${issue.id} By ${issue.author}
