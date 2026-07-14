@@ -50,7 +50,7 @@ function displayIssues(issues) {
             <img
                 src="${issue.status === "open"
                     ? "./assets/Open-Status.png"
-                    : "./assets/Closed- Status .png"}"
+                    : "./assets/ Status.png"}"
                 alt="${issue.status}"
             >
 
