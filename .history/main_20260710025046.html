@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Github Issue Tracker</title>
+
+
+<!-- DaisyUI -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet">
+
+
+<!-- Tailwind -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+>
+
+
+</head>
+
+
+<body class="bg-[#F8FAFC]">
+
+
+
+<!-- ================= NAVBAR ================= -->
+
+
+<nav class="bg-white shadow-sm">
+
+
+<div class="max-w-[1110px] mx-auto navbar">
+
+
+    <!-- Logo Left -->
+
+    <div class="navbar-start">
+
+
+        <div class="flex items-center gap-2">
+
+
+            <img 
+            class="w-[36px] h-[37px]"
+            src="./assets/github-logo.png"
+            alt="github"
+            >
+
+
+            <h2 class="text-xl font-semibold">
+                GitHub Issues Tracker
+            </h2>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <!-- Search Right -->
+
+    <div class="navbar-end flex gap-3">
+
+
+        <input 
+        type="text"
+        placeholder="Search"
+        class="input input-bordered w-64"
+        >
+
+
+        <button class="btn btn-primary">
+
+            <i class="fa-solid fa-plus"></i>
+
+            New Issue
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<!-- ================= TAB SECTION ================= -->
+
+
+<div class="max-w-[1110px] h-[88px] mx-auto mt-5 bg-white rounded-lg p-5 flex gap-4">
+
+
+    <button class="btn btn-primary">
+        All
+    </button>
+
+
+    <button class="btn">
+        Open
+    </button>
+
+
+    <button class="btn">
+        Closed
+    </button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ================= ISSUE SUMMARY ================= -->
+
+
+<div class="max-w-[1110px] min-h-[98px] mx-auto mt-5 bg-white rounded-lg p-5 flex justify-between items-center">
+
+
+
+    <!-- LEFT CONTENT -->
+
+
+    <div class="flex items-center gap-3">
+
+
+        <div>
+
+
+            <img 
+            class="w-10 h-10"
+            src="./assets/Aperture.png"
+            alt=""
+            >
+
+
+        </div>
+
+
+
+        <div>
+
+
+            <h2 class="font-bold text-lg">
+                50 Issues
+            </h2>
+
+
+            <p class="text-gray-500 text-sm">
+                Track and manage your project issues
+            </p>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- RIGHT CONTENT -->
+
+
+    <div class="flex gap-5">
+
+
+        <span class="flex items-center gap-2">
+
+
+            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+
+            Open
+
+
+        </span>
+
+
+
+
+        <span class="flex items-center gap-2">
+
+
+            <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+
+            Closed
+
+
+        </span>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+
+
+<script src="./script"></script>
+</html>
