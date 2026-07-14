@@ -97,7 +97,7 @@ function displayIssues(issues) {
                 </div>
 
                 <div class="text-sm text-gray-400">
-                   Assignee:${issue.assignee===""?"Unassigned": issue.assignee}
+                   Assignee:${issue.assignee===""?"Unassigned":${}}
                 </div>
 
                 </div>
