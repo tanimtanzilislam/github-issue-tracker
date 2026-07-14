@@ -37,7 +37,7 @@ function displayIssues(issues) {
 
         const card = document.createElement("div");
 
-        card.className = `bg-white rounded-lg border-t-4 shadow p-4 cursor-pointer flex flex-col h-full ${
+        card.className = `bg-white rounded-xl shadow p-5 flex flex-col h-full ${
             issue.status === "open"
                 ? "border-green-500"
                 : "border-purple-500"
@@ -45,25 +45,17 @@ function displayIssues(issues) {
 
         card.innerHTML = `
 
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between">
 
-            <img
-                src="${issue.status === "open"
-                    ? "./assets/Open-Status.png"
-                    : "./assets/Closed-Status.png"}"
-                alt="${issue.status}"
-            >
-
-            <span class="px-3 py-1 rounded-full text-sm font-medium border ${
-                issue.priority === "high"
-                    ? "bg-red-100 text-red-600 border-red-600"
-                    : issue.priority === "medium"
-                    ? "bg-yellow-100 text-yellow-500 border-yellow-600"
-                    : "bg-gray-100 text-gray-500 border-gray-600"
-            }">
-                ${issue.priority}
+            <span class="">
+               <img src="${issue.status==="open"?"./assets/Open-Status.png":"./assets/Closed- Status .png"}" alt="${issue.status}">
             </span>
 
+           <span class="px-3 py-1 rounded-full text-sm font-medium border ${
+            issue.priority==="high" ? "bg-red-100 text-red-600 border-red-600": issue.priority==="medium"?"bg-yellow-100 text-yellow-500 border-yellow-600"
+            :"bg-gray-100 text-gray-500 border-gray-600"
+           }"> ${issue.priority}
+           </span>
         </div>
 
         <h2 class="font-bold mt-3">
@@ -71,35 +63,25 @@ function displayIssues(issues) {
         </h2>
 
         <p class="text-gray-500 text-sm mt-2">
-            ${issue.description.slice(0, 70)}...
+            ${issue.description.slice(0,70)}...
         </p>
 
-        <div class="mt-auto">
+    <div class="mt-3 flex gap-2 ">
+    ${
+        issue.labels.map(label=>`
+            <span class="badge badge-warning">${label}</span>
+            `).join("")
+    }
+    </div> 
+      <div="flex">
+        <div class="flex-1 border-t mt-3 border-gray-300"></div>
+        </div>
+        <div class="mt-5 text-sm text-gray-500">
+         #${issue.id}   By ${issue.author}
+        </div>
 
-            <div class="mt-3 flex flex-wrap gap-2">
-                ${
-                    issue.labels
-                        .map(label => `
-                            <span class="badge badge-warning">
-                                ${label}
-                            </span>
-                        `)
-                        .join("")
-                }
-            </div>
-
-            <div class="border-t border-gray-300 mt-4 pt-4">
-
-                <div class="text-sm text-gray-500">
-                    #${issue.id} By ${issue.author}
-                </div>
-
-                <div class="text-xs text-gray-400 mt-1">
-                    ${issue.createdAt}
-                </div>
-
-            </div>
-
+        <div class="text-xs text-gray-400">
+            ${issue.createdAt}
         </div>
 
         `;
