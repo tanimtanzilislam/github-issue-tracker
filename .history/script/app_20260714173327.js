@@ -169,7 +169,7 @@ ${issue.description}
 
 <div class="modal-action">
 
-<button class="btn btn-primary">
+<button class="btn btn-info">
 Close
 </button>
 
