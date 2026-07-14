@@ -105,11 +105,7 @@ function displayIssues(issues) {
                 <div>
 
                 <div class="text-xs text-gray-400 mt-1">
-                    ${new Date(issue.createdAt).toLocaleDateString("en-US")}
-                </div>
-
-                <div class="text-xs text-gray-400 mt-1">
-                  Updated:${new Date(issue.updatedAt).toLocaleDateString("en-US")}
+                    ${new Date(issue.createdAt).to}
                 </div>
 
                 </div>
