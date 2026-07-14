@@ -52,10 +52,14 @@ function displayIssues(issues) {
             </span>
 
            <span class="px-3 py-1 rounded-full text-sm font-medium border ${
-            issue.priority==="high" ? "bg-red-100 text-red-600 border-red-600": issue.priority==="medium"?"bg-yellow-100 text-yellow-500 border-yellow-600"
-            :"bg-gray-100 text-gray-500 border-gray-600"
-           }"> ${issue.priority}
-           </span>
+    issue.priority === "high"
+        ? "bg-red-100 text-red-600 border-red-500"
+        : issue.priority === "medium"
+        ? "bg-yellow-100 text-yellow-700 border-yellow-500"
+        : "bg-gray-100 text-gray-600 border-gray-500"
+}">
+    ${issue.priority}
+</span>
         </div>
 
         <h2 class="font-bold mt-3">
