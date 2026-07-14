@@ -90,12 +90,12 @@ function displayIssues(issues) {
 
             <div class="border-t border-gray-300 mt-4 pt-4">
 
-                <div class="text-sm text-gray-400">
+                <div class="text-sm text-gray-500">
                     #${issue.id} By ${issue.author}
                 </div>
 
-                <div class="text-sm text-gray-400">
-                    ${issue.assignee}
+                <div class="text-sm text-gray-500">
+                    #${issue.id} By ${issue.author}
                 </div>
 
                 <div class="text-xs text-gray-400 mt-1">

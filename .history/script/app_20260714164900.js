@@ -94,7 +94,7 @@ function displayIssues(issues) {
                     #${issue.id} By ${issue.author}
                 </div>
 
-                <div class="text-sm text-gray-400">
+                <div class="text-sm text-gray-500">
                     ${issue.assignee}
                 </div>
 
