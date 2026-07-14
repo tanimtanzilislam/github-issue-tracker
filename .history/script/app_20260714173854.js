@@ -136,102 +136,51 @@ function displayIssues(issues) {
 async function showIssue(id) {
 
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+
     const data = await res.json();
 
     const issue = data.data;
 
     const modal = document.createElement("dialog");
+
     modal.className = "modal";
 
     modal.innerHTML = `
-    <form method="dialog" class="modal-box max-w-4xl rounded-2xl p-8">
 
-        <!-- Title -->
-        <h2 class="text-4xl font-bold text-slate-800">
-            ${issue.title}
-        </h2>
+<form method="dialog" class="modal-box">
 
-        <!-- Status -->
-        <div class="flex items-center gap-3 mt-5">
+<h3 class="font-bold text-xl">
+${issue.title}
+</h3>
 
-            <span class="px-4 py-1 rounded-full text-white text-sm font-semibold ${
-                issue.status === "open"
-                    ? "bg-green-500"
-                    : "bg-purple-500"
-            }">
-                ${issue.status.charAt(0).toUpperCase() + issue.status.slice(1)}
-            </span>
+<p class="py-3">
+${issue.description}
+</p>
 
-            <span class="text-slate-500">
-                Opened by ${issue.author}
-            </span>
+<p><b>Status:</b> ${issue.status}</p>
 
-            <span class="text-slate-400">•</span>
+<p><b>Priority:</b> ${issue.priority}</p>
 
-            <span class="text-slate-500">
-                ${new Date(issue.createdAt).toLocaleDateString("en-GB")}
-            </span>
+<p><b>Label:</b> ${issue.labels}</p>
 
-        </div>
+<p><b>Author:</b> ${issue.author}</p>
 
-        <!-- Labels -->
-        <div class="flex flex-wrap gap-2 mt-6">
-            ${
-                issue.labels.map(label => `
-                    <span class="badge badge-outline badge-warning">
-                        ${label.toUpperCase()}
-                    </span>
-                `).join("")
-            }
-        </div>
+<p><b>Created:</b> ${issue.createdAt}</p>
 
-        <!-- Description -->
-        <p class="text-lg text-slate-500 mt-8 leading-8">
-            ${issue.description}
-        </p>
+<div class="w-[636px] h-[81px] bg-[#F8FAFC] "> 
+</div>
 
-        <!-- Information Box -->
-        <div class="grid grid-cols-2 gap-10 bg-slate-50 rounded-xl p-6 mt-8">
+<div class="modal-action">
 
-            <div>
-                <p class="text-gray-500 text-lg">
-                    Assignee:
-                </p>
+<button class="btn btn-primary">
+Close
+</button>
 
-                <p class="text-2xl font-bold mt-2">
-                    ${issue.assignee || "Unassigned"}
-                </p>
-            </div>
+</div>
 
-            <div>
-                <p class="text-gray-500 text-lg">
-                    Priority:
-                </p>
+</form>
 
-                <span class="inline-block mt-2 px-4 py-1 rounded-full text-white text-sm font-semibold ${
-                    issue.priority === "high"
-                        ? "bg-red-500"
-                        : issue.priority === "medium"
-                        ? "bg-yellow-500"
-                        : "bg-gray-500"
-                }">
-                    ${issue.priority.toUpperCase()}
-                </span>
-            </div>
-
-        </div>
-
-        <!-- Close Button -->
-        <div class="modal-action mt-8">
-
-            <button class="btn bg-purple-700 hover:bg-purple-800 text-white border-0 px-8">
-                Close
-            </button>
-
-        </div>
-
-    </form>
-    `;
+`;
 
     document.body.appendChild(modal);
 
@@ -242,6 +191,7 @@ async function showIssue(id) {
     });
 
 }
+
 
 //================ COUNT =================
 

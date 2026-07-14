@@ -136,112 +136,99 @@ function displayIssues(issues) {
 async function showIssue(id) {
 
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+
     const data = await res.json();
 
     const issue = data.data;
 
     const modal = document.createElement("dialog");
+
     modal.className = "modal";
 
-    modal.innerHTML = `
-    <form method="dialog" class="modal-box max-w-4xl rounded-2xl p-8">
+ modal.innerHTML = `
+<form method="dialog" class="modal-box max-w-4xl rounded-2xl p-10">
 
-        <!-- Title -->
-        <h2 class="text-4xl font-bold text-slate-800">
-            ${issue.title}
-        </h2>
+    <h2 class="text-4xl font-bold text-slate-800">
+        ${issue.title}
+    </h2>
 
-        <!-- Status -->
-        <div class="flex items-center gap-3 mt-5">
+    <div class="flex items-center gap-3 mt-4 text-sm">
 
-            <span class="px-4 py-1 rounded-full text-white text-sm font-semibold ${
-                issue.status === "open"
-                    ? "bg-green-500"
-                    : "bg-purple-500"
-            }">
-                ${issue.status.charAt(0).toUpperCase() + issue.status.slice(1)}
-            </span>
+        <span class="px-4 py-1 rounded-full font-semibold ${
+            issue.status === "open"
+            ? "bg-green-600 text-white"
+            : "bg-purple-600 text-white"
+        }">
+            ${issue.status}
+        </span>
 
-            <span class="text-slate-500">
-                Opened by ${issue.author}
-            </span>
+        <span class="text-slate-500">
+            Opened by ${issue.author}
+        </span>
 
-            <span class="text-slate-400">•</span>
+        <span class="text-slate-400">•</span>
 
-            <span class="text-slate-500">
-                ${new Date(issue.createdAt).toLocaleDateString("en-GB")}
-            </span>
+        <span class="text-slate-500">
+            ${new Date(issue.createdAt).toLocaleDateString("en-GB")}
+        </span>
 
-        </div>
+    </div>
 
-        <!-- Labels -->
-        <div class="flex flex-wrap gap-2 mt-6">
-            ${
-                issue.labels.map(label => `
-                    <span class="badge badge-outline badge-warning">
-                        ${label.toUpperCase()}
-                    </span>
-                `).join("")
-            }
-        </div>
-
-        <!-- Description -->
-        <p class="text-lg text-slate-500 mt-8 leading-8">
-            ${issue.description}
-        </p>
-
-        <!-- Information Box -->
-        <div class="grid grid-cols-2 gap-10 bg-slate-50 rounded-xl p-6 mt-8">
-
-            <div>
-                <p class="text-gray-500 text-lg">
-                    Assignee:
-                </p>
-
-                <p class="text-2xl font-bold mt-2">
-                    ${issue.assignee || "Unassigned"}
-                </p>
-            </div>
-
-            <div>
-                <p class="text-gray-500 text-lg">
-                    Priority:
-                </p>
-
-                <span class="inline-block mt-2 px-4 py-1 rounded-full text-white text-sm font-semibold ${
-                    issue.priority === "high"
-                        ? "bg-red-500"
-                        : issue.priority === "medium"
-                        ? "bg-yellow-500"
-                        : "bg-gray-500"
-                }">
-                    ${issue.priority.toUpperCase()}
+    <div class="flex gap-2 mt-6 flex-wrap">
+        ${
+            issue.labels.map(label=>`
+                <span class="badge badge-outline badge-warning">
+                    ${label.toUpperCase()}
                 </span>
-            </div>
+            `).join("")
+        }
+    </div>
 
+    <p class="mt-8 text-xl text-slate-500 leading-9">
+        ${issue.description}
+    </p>
+
+    <div class="grid grid-cols-2 gap-6 mt-10 bg-slate-50 rounded-xl p-6">
+
+        <div>
+            <p class="text-slate-500 text-lg">
+                Assignee:
+            </p>
+
+            <p class="font-bold text-2xl text-slate-800 mt-2">
+                ${issue.assignee || "Unassigned"}
+            </p>
         </div>
 
-        <!-- Close Button -->
-        <div class="modal-action mt-8">
+        <div>
+            <p class="text-slate-500 text-lg">
+                Priority:
+            </p>
 
-            <button class="btn bg-purple-700 hover:bg-purple-800 text-white border-0 px-8">
-                Close
-            </button>
-
+            <span class="inline-block mt-2 px-4 py-1 rounded-full text-white font-semibold ${
+                issue.priority==="high"
+                ? "bg-red-500"
+                : issue.priority==="medium"
+                ? "bg-yellow-500"
+                : "bg-gray-500"
+            }">
+                ${issue.priority.toUpperCase()}
+            </span>
         </div>
 
-    </form>
-    `;
+    </div>
 
-    document.body.appendChild(modal);
+    <div class="modal-action mt-10">
 
-    modal.showModal();
+        <button class="btn bg-purple-700 hover:bg-purple-800 text-white border-none px-8">
+            Close
+        </button>
 
-    modal.addEventListener("close", () => {
-        modal.remove();
-    });
+    </div>
 
-}
+</form>
+`;
+
 
 //================ COUNT =================
 
